@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TokenService} from "../../../../token/token.service";
 
 @Component({
   selector: 'app-menu',
@@ -6,7 +7,6 @@ import {Component, OnInit} from '@angular/core';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent implements OnInit {
-
   ngOnInit(): void {
     const linkColor = document.querySelectorAll('.nav-link')
     linkColor.forEach(link => {
@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-
+    localStorage.removeItem('token');
+    window.location.reload();
   }
 }
