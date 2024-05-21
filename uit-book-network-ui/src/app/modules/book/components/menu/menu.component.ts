@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenService} from "../../../../token/token.service";
+import {AuthenticationService} from "../../../../services/services/authentication.service";
+import {Token} from "@angular/compiler";
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +9,15 @@ import {TokenService} from "../../../../token/token.service";
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent implements OnInit {
+  fullName = ""
+  constructor(
+    private tokenService: TokenService,
+    private authenticationService: AuthenticationService
+  ) {
+  }
+
   ngOnInit(): void {
+    this.fullName = this.tokenService.getFullName();
     const linkColor = document.querySelectorAll('.nav-link')
     linkColor.forEach(link => {
       if(window.location.href.endsWith(link.getAttribute('href') || '')) {

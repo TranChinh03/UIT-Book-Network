@@ -30,4 +30,13 @@ export class TokenService {
     }
     return true;
   }
+
+  getFullName() {
+    const token = this.token;
+    if (!token) {
+      return "";
+    }
+    const jwtHelper = new JwtHelperService();
+    return jwtHelper.decodeToken(token).fullName;
+  }
 }
