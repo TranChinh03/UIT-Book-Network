@@ -32,6 +32,16 @@ services:
     depends_on:
       - postgres
 
+  uitbn-ui:
+    container_name: uitbn-ui
+    image: uitbn/uitbn-ui:1.0.0
+    ports:
+      - 8080:80
+    networks:
+      - spring-demo
+    depends_on:
+      - uitbn-api
+
 networks:
   spring-demo:
     driver: bridge
