@@ -15,17 +15,20 @@ import { ReturnBooksComponent } from './pages/return-books/return-books.componen
 
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    MenuComponent,
-    BookListComponent,
-    BookCardComponent,
-    RatingComponent,
-    MyBooksComponent,
-    ManageBookComponent,
-    BorrowedBookListComponent,
-    ReturnBooksComponent
-  ],
+    declarations: [
+        MainComponent,
+        MenuComponent,
+        BookListComponent,
+        BookCardComponent,
+        RatingComponent,
+        MyBooksComponent,
+        ManageBookComponent,
+        BorrowedBookListComponent,
+        ReturnBooksComponent
+    ],
+    exports: [
+        RatingComponent
+    ],
     imports: [
         CommonModule,
         BookRoutingModule,
