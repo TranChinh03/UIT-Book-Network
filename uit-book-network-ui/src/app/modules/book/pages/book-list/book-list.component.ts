@@ -82,4 +82,9 @@ export class BookListComponent implements OnInit{
       }
     })
   }
+
+
+  displayBookDetails(book: BookResponse) {
+    this.router.navigate(['books', 'details', book.id]);
+  }
 }
